@@ -50,6 +50,7 @@
     <Compile Include="5. Removing Duplication\Item.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tennis Clean\TennisGame.cs" />
     <Compile Include="Tennis\TennisGame3.cs" />
   </ItemGroup>
   <ItemGroup>
