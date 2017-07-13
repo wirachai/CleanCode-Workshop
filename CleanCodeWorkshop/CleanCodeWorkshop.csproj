@@ -42,6 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="1. Renaming\Order.cs" />
+    <Compile Include="2. Extracting Method\AccountService.cs" />
+    <Compile Include="3. Extracting Parameter Object\EmailSender.cs" />
+    <Compile Include="4. Removing Magic Number\Promotion.cs" />
+    <Compile Include="5. Removing Duplication\CollectionShop.cs" />
+    <Compile Include="5. Removing Duplication\Item.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
