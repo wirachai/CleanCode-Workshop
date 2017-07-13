@@ -4,21 +4,18 @@ namespace CleanCodeWorkshop._5._Removing_Duplication
 {
     public class CollectionShop
     {
+        private const string Book = "Book";
+        private const string Wine = "Wine";
+
         public void UpdateQuality(Item item)
         {
-            if (item.Name != "Book")
+            if (item.Name != Book)
             {
-                if (item.Quality < 100)
-                {
-                    item.Quality += 1;
-                }
+                IncreaseQuality(item);
 
-                if (item.Name == "Wine")
+                if (item.Name == Wine)
                 {
-                    if (item.Quality < 100)
-                    {
-                        item.Quality += 1;
-                    }
+                    IncreaseQuality(item);
                 }
             }
         }
@@ -27,21 +24,16 @@ namespace CleanCodeWorkshop._5._Removing_Duplication
         {
             for (int i = 0; i < items.Count; i++)
             {
-                if (items[i].Name != "Book")
-                {
-                    if (items[i].Quality < 100)
-                    {
-                        items[i].Quality += 1;
-                    }
+                var item = items[i];
+                UpdateQuality(item);
+            }
+        }
 
-                    if (items[i].Name == "Wine")
-                    {
-                        if (items[i].Quality < 100)
-                        {
-                            items[i].Quality += 1;
-                        }
-                    }
-                }
+        private void IncreaseQuality(Item item)
+        {
+            if (item.Quality < 100)
+            {
+                item.Quality += 1;
             }
         }
     }

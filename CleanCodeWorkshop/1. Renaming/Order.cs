@@ -4,14 +4,14 @@ namespace CleanCodeWorkshop._1._Renaming
 {
     public class Order
     {
-        public float Calculate(List<float> list, float p)
+        public float GetTotalPrice(List<float> prices, float shippingCost)
         {
-            float temp = 0;
-            for (int i = 0; i < list.Count; i++)
+            float subTotalPrice = 0;
+            for (int i = 0; i < prices.Count; i++)
             {
-                temp += list[i];
+                subTotalPrice += prices[i];
             }
-            return temp + p;
+            return subTotalPrice + shippingCost;
         }
     }
 }

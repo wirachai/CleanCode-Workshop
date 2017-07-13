@@ -2,30 +2,35 @@
 {
     public class Promotion
     {
+        private const int MinPriceForPromotion = 100;
+        private const float StandardDiscount = 0.05f;
+        private const float ShirtDiscount = 0.10f;
+        private const float JeanDiscount = 0.20f;
+
         public float GetDiscount(float price, int productCategory)
         {
             float discount = 0;
             switch (productCategory)
             {
-                case 1:
-                    if (price >= 100)
-                    {
-                        discount = price * 0.10f;
-                    }
+                case ProductCategory.Shirt:
+                    if (price >= MinPriceForPromotion)
+                        discount = price * ShirtDiscount;
                     break;
-
-                case 2:
-                    discount = price * 0.20f;
+                case ProductCategory.Jean:
+                    discount = price * JeanDiscount;
                     break;
-
                 default:
-                    if (price >= 100)
-                    {
-                        discount = price * 0.05f;
-                    }
+                    if (price >= MinPriceForPromotion)
+                        discount = price * StandardDiscount;
                     break;
             }
             return discount;
         }
+    }
+
+    public static class ProductCategory
+    {
+        public const int Shirt = 1;
+        public const int Jean = 2;
     }
 }

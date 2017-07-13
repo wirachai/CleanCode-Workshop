@@ -38,5 +38,41 @@ namespace CleanCodeWorkshop._2._Extracting_Method
                 }
             }
         }
+
+        public void Register(string username, string password)
+        {
+            if (IsValidUsername(username) && IsValidPassword(password))
+            {
+                InsertRecord(username, password);
+            }
+        }
+
+        private bool IsValidUsername(string username)
+        {
+            return username != null && username.Length >= 4 && Regex.IsMatch(username, "[A-Za-z0-9]");
+        }
+
+        private bool IsValidPassword(string password)
+        {
+            return password != null && password.Length >= 8;
+        }
+
+        private void InsertRecord(string username, string password)
+        {
+            using (SqlConnection cn = new SqlConnection("connection string"))
+            {
+                string query = "INSERT INTO User (Username, Password) VALUES (@Username, @Password) ";
+
+                using (SqlCommand cmd = new SqlCommand(query, cn))
+                {
+                    cmd.Parameters.Add("@Username", System.Data.SqlDbType.VarChar, 100).Value = username;
+                    cmd.Parameters.Add("@Password", System.Data.SqlDbType.VarChar, 100).Value = password;
+
+                    cn.Open();
+                    cmd.ExecuteNonQuery();
+                    cn.Close();
+                }
+            }
+        }
     }
 }
