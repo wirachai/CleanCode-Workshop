@@ -7,7 +7,7 @@ namespace CleanCodeWorkshop.Test
     internal class TennisGameTest
     {
         [Test]
-        public void GetScore_ShouldReturnLoveLove_WhenScoreIs0And0()
+        public void GetScore_ShouldReturnLoveAll_WhenScoreIs0And0()
         {
             TennisGame game = new TennisGame(0, 0);
             Assert.AreEqual("Love-All", game.GetScore());
@@ -42,7 +42,7 @@ namespace CleanCodeWorkshop.Test
         }
 
         [Test]
-        public void GetScore_ShouldReturnThirtyThirty_WhenScoreIs2And2()
+        public void GetScore_ShouldReturnThirtyAll_WhenScoreIs2And2()
         {
             TennisGame game = new TennisGame(2, 2);
             Assert.AreEqual("Thirty-All", game.GetScore());
@@ -84,14 +84,14 @@ namespace CleanCodeWorkshop.Test
         }
 
         [Test]
-        public void GetScore_ShouldReturnAdvPlayer1_WhenScoreIs4And5()
+        public void GetScore_ShouldReturnAdvPlayer2_WhenScoreIs4And5()
         {
             TennisGame game = new TennisGame(4, 5);
             Assert.AreEqual("Advantage player2", game.GetScore());
         }
 
         [Test]
-        public void GetScore_ShouldReturnAdvPlayer2_WhenScoreIs5And4()
+        public void GetScore_ShouldReturnAdvPlayer1_WhenScoreIs5And4()
         {
             TennisGame game = new TennisGame(5, 4);
             Assert.AreEqual("Advantage player1", game.GetScore());
